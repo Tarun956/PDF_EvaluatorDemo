@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Basic styling for the page */
+    /* Reset default styles and set box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styling for the page */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: grey;
+}
+
+#file-upload {
+  display: none;
+}
+
+#file-label {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#header {
+  /* background-color: #3498db; */
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#profile-logout {
+  display: flex;
+  align-items: center;
+}
+
+#profile {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+#logout {
+  background-color: #fff;
+  color: #3498db;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#response {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: none;
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+th {
+  background-color: #3498db;
+  color: #fff;
+}
+
+#upload-button{
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+#body-box{
+  width: 100%;
+  display: flex;
+}
+.left-box{
+  width: 60%;
+  height: 90vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 80px 30px;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+  /* background-color: red; */
+}
+.left-box img{
+  width: 70%;
+  height: 80%;
+  
+}
+.left-box h1{
+  margin-left: auto;
+  background-color: lightgray;
+  color: black;
+  padding: 5px 10px ;
+  align-self: flex-end;
+  margin-bottom: 50px;
+  
+}
+.right-box{
+  width: 40%;
+  height: 90vh;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+}
+
+a{
+  /* background-color: white; */
+  padding: 5px 10px;
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+tbody{
+  background-color: #e9edf1;
+}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+</head>
+<body>
+  <div id="header">
+    <div id="logo"></div>
+    <div id="profile-logout">
+      <div id="profile">Hello, Tarun</div>
+      <a href="javascript:window.location.href=window.location.href">Home</a>
+    </div>
+  </div>
+  <div id="body-box">
+
+    <div class="left-box">
+
+      <img src="pdf_logo-removebg-preview.png">
+      <h1>EVALUATOR</h1>
+  
+    </div>
+    <div class="right-box">
+
+      <div>
+
+        <br>
+  
+    <h1>PDF Upload and API Demo</h1>
+    <br><br>
+  
+    <label for="file-upload" id="file-label">Choose a PDF file</label>
+    <input type="file" id="file-upload" accept=".pdf">
+    <br><br><br>
+  
+    <div id="file-name"></div>
+    <br>
+  
+    <button id="upload-button">Upload and Send</button>
+    </div>
+
+      </div>
+  
+      
+
+  </div>
+
+  <div id="response">
+    <h2>Evaluation Report</h2>
+    <table>
+      <tr>
+        <th>Heading</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>Total Words</td>
+        <td id="total-words"></td>
+      </tr>
+      <tr>
+        <td>Total Headings</td>
+        <td id="total-headings"></td>
+      </tr>
+      <tr>
+        <td>Font color majority</td>
+        <td id="total-subheadings"></td>
+      </tr>
+      <tr>
+        <td>Text Sizes</td>
+        <td id="text-sizes"></td>
+      </tr>
+      <tr>
+        <td>Total Images</td>
+        <td id="total-images"></td>
+      </tr>
+      <tr>
+        <td>Languages</td>
+        <td id="languages"></td>
+      </tr>
+      <tr>
+        <td>Is english present</td>
+        <td id="Is_english_present"></td>
+      </tr>
+    </table>
+  </div>
+  
+  
+
+  <script>
+
+      const fileUpload = document.getElementById('file-upload');
+      const fileNameDisplay = document.getElementById('file-name');
+      fileUpload.addEventListener('change', function() {
+        if (fileUpload.files.length > 0) {
+          const fileName = fileUpload.files[0].name;
+          fileNameDisplay.textContent = 'Selected File: ' + fileName;
+        } else {
+          fileNameDisplay.textContent = '';
+        }
+      });
+    document.getElementById('upload-button').addEventListener('click', function() {
+      const fileInput = document.getElementById('file-upload');
+      const totalWords = document.getElementById('total-words');
+      const totalHeadings = document.getElementById('total-headings');
+      const totalSubheadings = document.getElementById('total-subheadings');
+      const textSizes = document.getElementById('text-sizes');
+      const totalImages = document.getElementById('total-images');
+      const languages = document.getElementById('languages');
+      const responseDiv = document.getElementById('response');
+      const uploadDiv = document.getElementById('body-box');
+      const Is_english_present = document.getElementById('Is_english_present');
+
+      console.log(uploadDiv)
+
+      if (fileInput.files.length === 0) {
+        alert('Please choose a PDF file to upload.');
+        return;
+      }
+
+      const file = fileInput.files[0];
+      console.log(fileInput.files[0].name)
+      const formData = new FormData();
+      formData.append('pdf', file);
+
+      axios.get(`http://localhost:5000/get_stat/?name=${fileInput.files[0].name}`).then((data) => {
+        console.log(data.data)
+          responseDiv.style.display = 'block';
+          uploadDiv.style.display = 'none';
+
+          const responseData = JSON.parse(data.data);
+
+          totalWords.textContent = responseData.total_words;
+          totalHeadings.textContent = responseData.total_headings;
+          totalSubheadings.textContent = responseData.Font_color_majority;
+          textSizes.textContent = responseData.Text_size;
+          totalImages.textContent = responseData.total_images_count;
+          languages.textContent = responseData.languages;
+          Is_english_present.textContent = responseData.Is_english_present;
+        })
+        .catch((error) => {
+          console.log(error)
+          
+          
+        });
+    });
+  </script>
+</body>
+</html>
