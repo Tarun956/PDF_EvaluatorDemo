@@ -1,0 +1,16 @@
+final_text_sizes = []
+    for sz in text_sizes:
+        if sz in [10,11,12,13,14,15,16,17,18,19,20]:
+            final_text_sizes.append(sz)
+
+    text_sizes_count = {}
+    for elem in final_text_sizes:
+        if elem not in text_sizes_count:
+            text_sizes_count[elem] = 1
+        else:
+            already_count = text_sizes_count[elem]
+            text_sizes_count[elem] = already_count+1
+
+    Keymax = None
+    if text_sizes_count:
+        Keymax = max(zip(text_sizes_count.values(), text_sizes_count.keys()))[1]
