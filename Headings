@@ -1,0 +1,3 @@
+hdgs = re.findall(r'\b([A-Z\d]+:)', page_text, re.I)
+hdgs_result = [h.strip() for h in hdgs]
+headings += len(hdgs_result)
