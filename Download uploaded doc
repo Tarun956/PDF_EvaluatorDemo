@@ -1,0 +1,19 @@
+<!-- New Code: With Download Option -->
+<div id="body-box">
+  <div class="left-box">
+    <!-- ... Other content ... -->
+  </div>
+  <div class="right-box">
+    <h1>PDF Upload and API Demo</h1>
+    <label for="file-upload" id="file-label">Choose a PDF file</label>
+    <input type="file" id="file-upload" accept=".pdf">
+    <!-- ... Other content ... -->
+    <div id="file-name"></div>
+    <br>
+    <div id="preview-box">
+      <iframe id="pdf-preview" style="width: 100%; height: 300px; display: none;"></iframe>
+    </div>
+    <a id="download-link" style="display: none;" download>Download PDF</a>
+    <button id="upload-button">Upload and Send</button>
+  </div>
+</div>
