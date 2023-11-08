@@ -1,0 +1,15 @@
+def get_table_count(pdf_path):
+    """Counts the number of tables in a PDF file.
+
+    Args:
+        pdf_path: The path to the PDF file.
+
+    Returns:
+        The number of tables in the PDF file.
+    """
+    try:
+        # Read the PDF file and extract all of the tables using tabula
+        tables = tabula.read_pdf(pdf_path, pages='all', multiple_tables=True)
+        return len(tables)
+    except Exception as e:
+        return 0
