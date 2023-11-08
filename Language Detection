@@ -1,0 +1,9 @@
+/*PyMuPDF (Fitz) in the new code for PDF parsing, while the previous code used PyPDF2. Large documents language detection got complicated while using PyPDF2 however the issue is fixed using PyMuPDF(Fitz).*/
+ for page_num in range(len(pdf_document)):
+        page = pdf_document.load_page(page_num)
+        page_text = page.get_text()
+
+        try:
+            langs.append(detect(page_text.strip()[:100]))
+        except:
+            pass
