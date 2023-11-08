@@ -1,0 +1,40 @@
+.right-box{
+  width: 40%;
+  height: 90vh;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+}
+
+a{
+  /* background-color: white; */
+  padding: 5px 10px;
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+tbody{
+  background-color: #e9edf1;
+}
+.response_2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  
+
+}
+.response_2 .item{
+  width: 220px;
+  height: 190px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
