@@ -1,4 +1,4 @@
-pip install tabula
+import tabula   # !pip install tabula-py
 '''
 Collecting tabula
   Downloading tabula-1.0.5.tar.gz (9.5 kB)
