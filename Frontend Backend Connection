@@ -1,0 +1,11 @@
+Currently using Uvicorn as shown below : 
+
+
+if __name__ == "__main__":
+    
+    uvicorn.run(app, host="0.0.0.0", port=5000)
+
+
+Can move to flask app to make the app run
+
+## probably will move it to flask, if the time permits
