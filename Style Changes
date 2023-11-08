@@ -1,0 +1,40 @@
+## Can make some UI changes and also do some improvements
+
+#body-box{
+  width: 100%;
+  display: flex;
+}
+.left-box{
+  width: 60%;
+  height: 90vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 80px 30px;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+  /* background-color: red; */
+}
+.left-box img{
+  width: 70%;
+  height: 80%;
+  
+}
+.left-box h1{
+  margin-left: auto;
+  background-color: lightgray;
+  color: black;
+  padding: 5px 10px ;
+  align-self: flex-end;
+  margin-bottom: 50px;
+  
+}
+.right-box{
+  width: 40%;
+  height: 90vh;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+}
