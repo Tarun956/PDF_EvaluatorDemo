@@ -1,0 +1,3 @@
+def get_stats_of_file(curr_file_path):
+    pdf_document = fitz.open(curr_file_path)
+    # ...
