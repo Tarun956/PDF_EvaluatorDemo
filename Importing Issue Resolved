@@ -1,0 +1,20 @@
+pip install tabula
+'''
+Collecting tabula
+  Downloading tabula-1.0.5.tar.gz (9.5 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Requirement already satisfied: setuptools in c:\users\owner\appdata\local\programs\python\python311\lib\site-packages (from tabula) (65.5.0)
+Requirement already satisfied: numpy in c:\users\owner\appdata\local\programs\python\python311\lib\site-packages (from tabula) (1.25.2)
+Building wheels for collected packages: tabula
+  Building wheel for tabula (pyproject.toml) ... done
+  Created wheel for tabula: filename=tabula-1.0.5-py3-none-any.whl size=10601 sha256=5a0b36b0ed025beac371fb9e47a22cb34007b8605efb2f80e50509b4458e2461
+  Stored in directory: c:\users\owner\appdata\local\pip\cache\wheels\db\bb\71\f5d253c5eb10c8820dfd0590cd228e312b0768adc537466b45
+Successfully built tabula
+Installing collected packages: tabula
+Successfully installed tabula-1.0.5
+
+[notice] A new release of pip is available: 23.2.1 -> 23.3.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+'''
