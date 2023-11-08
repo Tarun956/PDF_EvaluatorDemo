@@ -1,0 +1,3 @@
+# Count images in the page
+image_list = page.get_images(full=True)
+image_count += len(image_list)
