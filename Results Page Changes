@@ -1,0 +1,53 @@
+  const buttons = document.getElementById('buttons');
+    const totalWordsButton = document.getElementById('total-words-button');
+    const totalHeadingsButton = document.getElementById('total-headings-button');
+    const totalSubheadingsButton = document.getElementById('total-subheadings-button');
+    const textSizesButton = document.getElementById('text-sizes-button');
+    const totalImagesButton = document.getElementById('total-images-button');
+    const languagesButton = document.getElementById('languages-button');
+    const Is_english_presentButton = document.getElementById('Is_english_present-button');
+    const totalTablesButton = document.getElementById('total-tables-button');
+
+    totalWordsButton.addEventListener('click', function() {
+      console.log(totalWordsButton)
+      // document.getElementById('total-words-label').style.display = 'none';
+      document.getElementById('total-words-label').textContent = 'Total Words';
+
+      document.getElementById('total-words').style.display = 'block';
+    });
+
+    totalHeadingsButton.addEventListener('click', function() {
+      
+      document.getElementById('total-headings').style.display = 'block';
+      document.getElementById('total-headings-label').textContent = 'Total Headings';
+    });
+
+    totalSubheadingsButton.addEventListener('click', function() {
+      document.getElementById('total-subheadings-label').textContent = 'Font color majority';
+      document.getElementById('total-subheadings').style.display = 'block';
+    });
+
+    textSizesButton.addEventListener('click', function() {
+      document.getElementById('text-sizes-label').textContent = 'Text Sizes';
+      document.getElementById('text-sizes').style.display = 'block';
+    });
+
+    totalImagesButton.addEventListener('click', function() {
+      document.getElementById('total-images-label').textContent = 'Total Images';
+      document.getElementById('total-images').style.display = 'block';
+    });
+
+    languagesButton.addEventListener('click', function() {
+      document.getElementById('languages-label').textContent = 'Languages';
+      document.getElementById('languages').style.display = 'block';
+    });
+
+    Is_english_presentButton.addEventListener('click', function() {
+      document.getElementById('Is_english_present-label').textContent = 'Is English Present';
+      document.getElementById('Is_english_present').style.display = 'block';
+    });
+
+    totalTablesButton.addEventListener('click', function() {
+      document.getElementById('total-tables-label').textContent = 'Total Tables';
+      document.getElementById('total-tables').style.display = 'block';
+    });
