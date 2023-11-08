@@ -1,0 +1,15 @@
+<div id="response">
+  <h2>Evaluation Report</h2>
+  <div class="response_2">
+    <!-- Each data point is displayed in a flexbox item -->
+    <div class="item" id="total-words-button">
+      <div id="total-words-label">Show Total Words</div>
+      <div id="total-words" style="display: none;"></div>
+    </div>
+    <div class="item" id="total-headings-button">
+      <p id="total-headings-label" >Show Total Headings</p>
+      <p id="total-headings" style="display: none;"></p>
+    </div>
+    <!-- Other evaluation report data points are similarly structured -->
+  </div>
+</div>
