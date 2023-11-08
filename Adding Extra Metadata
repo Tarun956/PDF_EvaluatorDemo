@@ -1,0 +1,6 @@
+ pdf_document.close()
+
+    # pdf metadata also need to update or TODO
+    pdf_metadata['Title'] = "Pdf Document"
+    pdf_metadata['page_num'] = len(pdf_document)
+    pdf_metadata['created_time'] = "2023"
