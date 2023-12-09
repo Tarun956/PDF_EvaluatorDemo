@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+/*<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -274,7 +274,350 @@ tbody{
         })
         .catch((error) => {
           console.log(error)
-          
+*/
+
+<html>
+<head>
+<base href="https://main--leafy-bunny-6cebc4.netlify.app/">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/* Basic styling for the page */ /* Reset default styles and set box-sizing */ * { margin: 0; padding: 0; box-sizing: border-box; } /* Basic styling for the page */ body { font-family: Arial, sans-serif; text-align: center; background-color: gray; } #file-upload { display: none; } #file-label { background-color: #3498db; color: #fff; padding: 10px 20px; cursor: pointer; } #header { /* background-color: #3498db; */ /* color: #fff; */ padding: 10px; display: flex; justify-content: space-between; } #logo { font-size: 24px; font-weight: bold; } #profile-logout { display: flex; align-items: center; justify-content: space-between; /* background-color: red; */ width: 300px; } #profile { margin-right: 20px; font-weight: bold; } #logout { background-color: #fff; color: #3498db; border: none; padding: 5px 10px; cursor: pointer; } #response { margin-top: 20px; padding: 20px 10px; border: 1px solid #ccc; display: none; } table { margin: 20px auto; border-collapse: collapse; } th, td { border: 1px solid #ccc; padding: 8px; } th { background-color: #3498db; color: #fff; } #upload-button { padding: 10px; background-color: #3498db; color: white; border: none; cursor: pointer; } #body-box { width: 100%; display: flex; } .left-box { width: 60%; height: 90vh; display: flex; justify-content: space-around; align-items: center; padding: 80px 30px; justify-content: center; align-items: center; /* flex-direction: column; */ /* background-color: red; */ } .left-box img { width: 70%; height: 80%; } .left-box h1 { margin-left: auto; background-color: lightgray; color: black; padding: 5px 10px; align-self: flex-end; margin-bottom: 50px; } .right-box { width: 40%; height: 90vh; display: flex; justify-content: start; align-items: center; } a { /* background-color: white; */ padding: 5px 10px; list-style: none; text-decoration: none; color: black; } a:hover{ color: rgb(102,157,246); /* color: darkblue; */ transform: scale(1.4);; } tbody { background-color: #e9edf1; } .response_2 { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; } .response_2 .item { width: 200px; height: 170px; display: flex; justify-content: center; align-items: center; background-color: white; border-radius: 10px; flex-direction: column; gap: 10px; cursor: pointer; overflow: hidden; } .text-box { width: 100%; height: 300px; margin-bottom: 10px; overflow: auto; background-color: white; padding: 10px; } .item_1{ width: 100%; height: 50%; display: flex; justify-content: center; align-items: center; font-size: 36px; font-weight: bold; font-family: 'FontAwesome'; text-transform: uppercase; } .item_2{ width: 100%;height: 50%;display: flex;justify-content: center;align-items: center;background-color: #74c0fc;flex-direction: column; } .item:hover{ /* transform: scale(1.1); */ border: 4px solid #74c0fc; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+</head>
+<body>
+<!-- &lt;div id=&quot;header&quot;&gt; &lt;div id=&quot;logo&quot;&gt;&lt;/div&gt; &lt;div id=&quot;profile-logout&quot;&gt; &lt;div id=&quot;profile&quot;&gt;Hello, Tarun&lt;/div&gt; &lt;a href=&quot;about.html&quot;&gt;About&lt;/a&gt; &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt; &lt;a href=&quot;conatct-us.html&quot;&gt;Contact us&lt;/a&gt; &lt;/div&gt; &lt;/div&gt;-->
+<div id="header">
+<!-- &lt;div id=&quot;logo&quot;&gt;&lt;/div&gt;-->
+<div id="profile">
+<i class="fa fa-home fa-1g" style="font-size: 25px;"></i>
+
+Hello Guest !!!
+</div>
+<div id="profile-logout">
+<a href="/about">
+About
+</a>
+<a href="/">
+Home
+</a>
+<a href="/conatct-us">
+Contact us
+</a>
+</div>
+</div>
+<!-- &lt;hr&gt;-->
+<div id="body-box">
+<div class="left-box">
+Missing alternative text
+<img src="pdf_logo-removebg-preview.png">
+Heading level 1
+<h1>
+EVALUATOR
+</h1>
+</div>
+<div class="right-box">
+<div>
+<br>
+Heading level 1
+<h1>
+PDF Upload and API Demo
+</h1>
+<br>
+<br>
+Form labelVery low contrast
+<label for="file-upload" id="file-label">
+Choose a PDF file
+</label>
+<input type="file" id="file-upload" accept=".pdf">
+<br>
+<br>
+<br>
+<div id="file-name"></div>
+<br>
+<div id="preview-box">
+Inline frame
+<iframe id="pdf-preview" style=" width: 100%; height: 300px; margin-left: auto; margin-right: auto; display: none; "></iframe>
+<br>
+<br>
+</div>
+Very low contrast
+<button id="upload-button">
+Upload and Send
+</button>
+</div>
+</div>
+</div>
+<!-- &lt;div id=&quot;preview-box&quot;&gt; &lt;iframe id=&quot;pdf-preview&quot; style=&quot;width: 30%; height: 500px;margin-left: auto;margin-right: auto;display: none;&quot;&gt;&lt;/iframe&gt; &lt;/div&gt;-->
+<div id="response">
+Heading level 2
+<h2>
+PDF Extraction Report
+</h2>
+<br>
+<br>
+Data table
+<table>
+<tbody>
+<tr>
+Table header cell
+<th>
+Heading
+</th>
+Table header cell
+<th>
+Value
+</th>
+</tr>
+<tr>
+<td>
+Total Words
+</td>
+<!-- &lt;td id=&quot;total-words&quot; style=&quot;display: none;&quot;&gt;&lt;/td&gt; &lt;td id=&quot;total-words-button&quot;&gt;&lt;button &gt;Show Total Words&lt;/button&gt;&lt;/td&gt;-->
+</tr>
+<tr>
+<td>
+Total Headings
+</td>
+<!-- &lt;td id=&quot;total-headings&quot; style=&quot;display: none;&quot;&gt;&lt;/td&gt; &lt;td id=&quot;total-headings-button&quot;&gt;&lt;button &gt;Show Total Headings&lt;/button&gt;&lt;/td&gt;-->
+</tr>
+<tr>
+<td>
+Font color majority
+</td>
+<!-- &lt;td id=&quot;total-subheadings&quot; style=&quot;display: none;&quot;&gt;&lt;/td&gt; &lt;td id=&quot;total-subheadings-button&quot;&gt;&lt;button &gt;Show Font color majority&lt;/button&gt;&lt;/td&gt;-->
+</tr>
+<tr>
+<td>
+Text Sizes
+</td>
+<!-- &lt;td id=&quot;text-sizes&quot; style=&quot;display: none;&quot;&gt;&lt;/td&gt; &lt;td id=&quot;text-sizes-button&quot;&gt;&lt;button &gt;Show Text Sizes&lt;/button&gt;&lt;/td&gt;-->
+</tr>
+<tr>
+<td>
+Total Images
+</td>
+<!-- &lt;td id=&quot;total-images&quot; style=&quot;display: none;&quot;&gt;&lt;/td&gt; &lt;td id=&quot;total-images-button&quot;&gt;&lt;button &gt;Show Total Images&lt;/button&gt;&lt;/td&gt;-->
+</tr>
+<tr>
+<td>
+Languages
+</td>
+<!-- &lt;td id=&quot;languages&quot; style=&quot;display: none;&quot;&gt;&lt;/td&gt; &lt;td id=&quot;languages-button&quot;&gt;&lt;button &gt;Show Languages&lt;/button&gt;&lt;/td&gt;-->
+</tr>
+<tr>
+<td>
+Is english present
+</td>
+<!-- &lt;td id=&quot;Is_english_present&quot; style=&quot;display: none;&quot;&gt;&lt;/td&gt; &lt;td id=&quot;Is_english_present-button&quot;&gt;&lt;button &gt;Show Is English Present&lt;/button&gt;&lt;/td&gt;-->
+</tr>
+</tbody>
+</table>
+<div style="display: flex; justify-content: center">
+<div id="preview-box_2" style="padding: 10px; width: 50%">
+Inline frame
+<iframe id="pdf-preview_2" style="width: 600px; height: 900px"></iframe>
+</div>
+<div class="response_2">
+<div class="item" id="total-words-button">
+<div class="item_1">
+W
+</div>
+<div class="item_2">
+<div id="total-words-label">
+Show Total Words
+</div>
+<div id="total-words" style="display: none"></div>
+</div>
+<!-- &lt;button&gt;Show Total Words&lt;/button&gt;-->
+</div>
+<div class="item" id="total-headings-button">
+<div class="item_1">
+H
+</div>
+<div class="item_2">
+<p id="total-headings-label">
+Show Total Headings
+</p>
+<p id="total-headings" style="display: none"></p>
+</div>
+<!-- &lt;p id=&quot;total-headings-button&quot;&gt;&lt;button &gt;Show Total Headings&lt;/button&gt;&lt;/p&gt;-->
+</div>
+<div class="item" id="total-subheadings-button">
+<div class="item_1">
+F
+</div>
+<div class="item_2">
+<p id="total-subheadings-label">
+Show Font color majority
+</p>
+<p id="total-subheadings" style="display: none"></p>
+</div>
+</div>
+<div class="item" id="text-sizes-button">
+<div class="item_1">
+T
+</div>
+<div class="item_2">
+<p id="text-sizes-label">
+Show Text Sizes
+</p>
+<p id="text-sizes" style="display: none"></p>
+</div>
+</div>
+<div class="item" id="total-images-button">
+<div class="item_1">
+I
+</div>
+<div class="item_2">
+<p id="total-images-label">
+Show Total Images
+</p>
+<p id="total-images" style="display: none"></p>
+</div>
+</div>
+<div class="item" id="languages-button">
+<div class="item_1">
+L
+</div>
+<div class="item_2">
+<p id="languages-label">
+Show Languages
+</p>
+<p id="languages" style="display: none"></p>
+</div>
+</div>
+<div class="item" id="Is_english_present-button">
+<div class="item_1">
+E
+</div>
+<div class="item_2">
+<p id="Is_english_present-label">
+Show Is English Present
+</p>
+<p id="Is_english_present" style="display: none"></p>
+</div>
+</div>
+<div class="item" id="total-tables-button">
+<div class="item_1">
+T
+</div>
+<div class="item_2">
+<p id="total-tables-label">
+Show Total Tables
+</p>
+<p id="total-tables" style="display: none"></p>
+</div>
+</div>
+</div>
+</div>
+<br>
+<div>
+Heading level 2
+<h2>
+Pdf meta data
+</h2>
+</div>
+<div>
+Data table
+<table>
+<tbody>
+<tr>
+Table header cell
+<th>
+Title
+</th>
+Table header cell
+<th>
+Author
+</th>
+Table header cell
+<th>
+Creator
+</th>
+Table header cell
+<th>
+Producer
+</th>
+Table header cell
+<th>
+Creation Date
+</th>
+Table header cell
+<th>
+Modification Date
+</th>
+Table header cell
+<th>
+Number of Pages
+</th>
+</tr>
+<tr>
+<td id="meta-title"></td>
+<td id="meta-author"></td>
+<td id="meta-creator"></td>
+<td id="meta-producer"></td>
+<td id="meta-credate"></td>
+<td id="meta-modidate"></td>
+<td id="meta-pages"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+Heading level 2
+<h2>
+Pdf Text
+</h2>
+</div>
+<br>
+<div id="textToSpeak" class="text-box"></div>
+<button onclick="speakText('textToSpeak','speakText','stopSpeaking')" id="speakText" style="float: right; padding: 10px;border-radius: 10px;outline: none;">
+<i class="fa fa-play"></i>
+
+Read
+</button>
+<button onclick="stopSpeaking('textToSpeak','speakText','stopSpeaking')" id="stopSpeaking" style="display: none;float: right; padding: 10px;border-radius: 10px;outline: none;">
+<i class="fa fa-pause"></i>
+
+Stop
+</button>
+<br>
+<div>
+Heading level 2
+<h2>
+Pdf summary
+</h2>
+</div>
+<br>
+<div id="speaksummary" class="text-box" style="height: 150px;"></div>
+<button onclick="speakText('speaksummary','speaksumm','stopSumm')" id="speaksumm" style="float: right; padding: 10px;border-radius: 10px;outline: none;">
+<i class="fa fa-play"></i>
+
+Read
+</button>
+<button onclick="stopSpeaking('speaksummary','speaksumm','stopSumm')" id="stopSumm" style="display: none;float: right; padding: 10px;border-radius: 10px;outline: none;">
+<i class="fa fa-pause"></i>
+
+Stop
+</button>
+<br>
+<div>
+Heading level 2
+<h2>
+Links available in PDF
+</h2>
+</div>
+<br>
+<div id="links"></div>
+</div>
+<script>
+const fileUpload = document.getElementById(&quot;file-upload&quot;); const fileNameDisplay = document.getElementById(&quot;file-name&quot;); fileUpload.addEventListener(&quot;change&quot;, function () { if (fileUpload.files.length &gt; 0) { console.log(fileUpload.files); const fileName = fileUpload.files[0].name; fileNameDisplay.textContent = &quot;Selected File: &quot; + fileName; const pdfPreview = document.getElementById(&quot;pdf-preview&quot;); const pdfPreview_2 = document.getElementById(&quot;pdf-preview_2&quot;); pdfPreview.src = URL.createObjectURL(fileUpload.files[0]); pdfPreview_2.src = URL.createObjectURL(fileUpload.files[0]); pdfPreview.style.display = &quot;block&quot;; } else { fileNameDisplay.textContent = &quot;&quot;; } }); document .getElementById(&quot;upload-button&quot;) .addEventListener(&quot;click&quot;, function () { const fileInput = document.getElementById(&quot;file-upload&quot;); const totalWords = document.getElementById(&quot;total-words&quot;); const totalHeadings = document.getElementById(&quot;total-headings&quot;); const totalSubheadings = document.getElementById(&quot;total-subheadings&quot;); const textSizes = document.getElementById(&quot;text-sizes&quot;); const totalImages = document.getElementById(&quot;total-images&quot;); const languages = document.getElementById(&quot;languages&quot;); const responseDiv = document.getElementById(&quot;response&quot;); const uploadDiv = document.getElementById(&quot;body-box&quot;); const Is_english_present = document.getElementById(&quot;Is_english_present&quot;); const totalTables = document.getElementById(&quot;total-tables&quot;); const meta_title = document.getElementById(&quot;meta-title&quot;); const meta_credate = document.getElementById(&quot;meta-credate&quot;); const meta_modidate = document.getElementById(&quot;meta-modidate&quot;); const meta_pages = document.getElementById(&quot;meta-pages&quot;); const meta_author = document.getElementById(&quot;meta-author&quot;); const meta_creator = document.getElementById(&quot;meta-creator&quot;); const meta_producer = document.getElementById(&quot;meta-producer&quot;); const summary = document.getElementById(&quot;speaksummary&quot;); const links = document.getElementById(&quot;links&quot;); console.log(uploadDiv); if (fileInput.files.length === 0) { alert(&quot;Please choose a PDF file to upload.&quot;); return; } const file = fileInput.files[0]; console.log(fileInput.files[0].name); const formData = new FormData(); formData.append(&quot;pdf&quot;, file); formData.append(&quot;filename&quot;, fileInput.files[0].name); axios .post( `https://tarun956.pythonanywhere.com/get_stat/`,formData, { headers: { 'Content-Type': 'multipart/form-data' } } ) .then((data) =&gt; { console.log(data); responseDiv.style.display = &quot;block&quot;; uploadDiv.style.display = &quot;none&quot;; const responseData = data.data; console.log(responseData) totalWords.textContent = responseData.total_words; totalHeadings.textContent = responseData.total_headings; totalSubheadings.textContent = responseData.Font_color_majority; textSizes.textContent = responseData.text_sizes; totalImages.textContent = responseData.total_images_count; languages.textContent = responseData.languages; Is_english_present.textContent = responseData.Is_english_present; totalTables.textContent = responseData.total_tables; textbox.innerHTML = responseData.total_pdf_text; meta_title.textContent = responseData.pdf_metadata.Title; meta_credate.textContent = responseData.pdf_metadata.Creation_Date; meta_modidate.textContent = responseData.pdf_metadata.Modification_Date; meta_pages.textContent = responseData.pdf_metadata.Number_of_Pages; meta_author.textContent = responseData.pdf_metadata.Author; meta_creator.textContent = responseData.pdf_metadata.Creator; meta_producer.textContent = responseData.pdf_metadata.Producer; summary.textContent = responseData.summary generateLinkList(responseData?.links); }) .catch((error) =&gt; { console.log(error); }); }); const buttons = document.getElementById(&quot;buttons&quot;); const totalWordsButton = document.getElementById(&quot;total-words-button&quot;); const totalHeadingsButton = document.getElementById( &quot;total-headings-button&quot; ); const totalSubheadingsButton = document.getElementById( &quot;total-subheadings-button&quot; ); const textSizesButton = document.getElementById(&quot;text-sizes-button&quot;); const totalImagesButton = document.getElementById(&quot;total-images-button&quot;); const languagesButton = document.getElementById(&quot;languages-button&quot;); const Is_english_presentButton = document.getElementById( &quot;Is_english_present-button&quot; ); const totalTablesButton = document.getElementById(&quot;total-tables-button&quot;); const stopreading = document.getElementById(&quot;stopSpeaking&quot;); const startreading = document.getElementById(&quot;speakText&quot;); const textbox = document.getElementById(&quot;textToSpeak&quot;) totalWordsButton.addEventListener(&quot;click&quot;, function () { console.log(totalWordsButton); // document.getElementById('total-words-label').style.display = 'none'; document.getElementById(&quot;total-words-label&quot;).textContent = &quot;Total Words&quot;; document.getElementById(&quot;total-words&quot;).style.display = &quot;block&quot;; }); totalHeadingsButton.addEventListener(&quot;click&quot;, function () { document.getElementById(&quot;total-headings&quot;).style.display = &quot;block&quot;; document.getElementById(&quot;total-headings-label&quot;).textContent = &quot;Total Headings&quot;; }); totalSubheadingsButton.addEventListener(&quot;click&quot;, function () { document.getElementById(&quot;total-subheadings-label&quot;).textContent = &quot;Font color majority&quot;; document.getElementById(&quot;total-subheadings&quot;).style.display = &quot;block&quot;; }); textSizesButton.addEventListener(&quot;click&quot;, function () { document.getElementById(&quot;text-sizes-label&quot;).textContent = &quot;Text Sizes&quot;; document.getElementById(&quot;text-sizes&quot;).style.display = &quot;block&quot;; }); totalImagesButton.addEventListener(&quot;click&quot;, function () { document.getElementById(&quot;total-images-label&quot;).textContent = &quot;Total Images&quot;; document.getElementById(&quot;total-images&quot;).style.display = &quot;block&quot;; }); languagesButton.addEventListener(&quot;click&quot;, function () { document.getElementById(&quot;languages-label&quot;).textContent = &quot;Languages&quot;; document.getElementById(&quot;languages&quot;).style.display = &quot;block&quot;; }); Is_english_presentButton.addEventListener(&quot;click&quot;, function () { document.getElementById(&quot;Is_english_present-label&quot;).textContent = &quot;Is English Present&quot;; document.getElementById(&quot;Is_english_present&quot;).style.display = &quot;block&quot;; }); totalTablesButton.addEventListener(&quot;click&quot;, function () { document.getElementById(&quot;total-tables-label&quot;).textContent = &quot;Total Tables&quot;; document.getElementById(&quot;total-tables&quot;).style.display = &quot;block&quot;; }); function speakText(name,button1,button2) { const text = document.getElementById(name).innerText; console.log(text); if (&quot;speechSynthesis&quot; in window) { const speech = new SpeechSynthesisUtterance(); speech.text = text; speech.volume = 1; // 0 to 1 speech.rate = 1; // 0.1 to 10 speech.pitch = 1; // 0 to 2 window.speechSynthesis.speak(speech); const start = document.getElementById(button1) const stop = document.getElementById(button2) stop.style.display = &quot;block&quot;; start.style.display = &quot;none&quot;; } else { alert(&quot;Text-to-speech is not supported in this browser.&quot;); } } function stopSpeaking(name,button1,button2) { if (window.speechSynthesis) { window.speechSynthesis.cancel(); document.getElementById(button2).style.display = &quot;none&quot;; document.getElementById(button1).style.display = &quot;block&quot;; } } function generateLinkList(links) { var linkListContainer = document.getElementById('links'); var ol = document.createElement('ol'); links.forEach(function(link) { var li = document.createElement('li'); var a = document.createElement('a'); a.href = link; a.textContent = link; a.target = &quot;_blank&quot;; // Open links in a new tab/window li.appendChild(a); ol.appendChild(li); }); linkListContainer.appendChild(ol); }
+</script>
+</body>
+</html>
+
+
           
         });
     });
